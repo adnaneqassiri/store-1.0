@@ -76,6 +76,11 @@ body {
   z-index: 2;
 }
 
+.notFound .container {
+  padding: 70px 0;
+  margin-top: 50px;
+}
+
 @media (max-width: 767px) {
   .nav {
     position: fixed;
