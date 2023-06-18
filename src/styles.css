@@ -138,7 +138,7 @@ body {
   background-color: #d48502;
   position: relative;
   margin-top: 20px;
-  background-image: url("./imgs/bg-3.jpg");
+  background-image: url("https://img.freepik.com/free-photo/full-shot-man-running-with-shopping-bags_23-2149220643.jpg?w=740&t=st=1687107075~exp=1687107675~hmac=470f990a8d9f0527fb652acc3f4c70db9e09a370772e40962e3c0afdd5a66204");
   background-position: center;
   background-size: cover;
   border-radius: 10px;
@@ -172,7 +172,10 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
 }
-.home .container .popular-collection .cards .card {
+.home .container .popular-collection .cards a {
+  text-decoration: none;
+}
+.home .container .popular-collection .cards a .card {
   margin: 0 auto;
   width: 200px;
   border-radius: 5px;
@@ -180,23 +183,131 @@ body {
   text-align: center;
   padding-bottom: 25px;
 }
-.home .container .popular-collection .cards .card h2 {
+.home .container .popular-collection .cards a .card h2 {
+  color: #000;
   font-size: 16px;
   font-weight: 500;
   margin: 0;
 }
-.home .container .popular-collection .cards .card p {
-  font-size: 14px;
+.home .container .popular-collection .cards a .card p {
+  font-size: 16px;
+  color: #d48502;
+  margin-top: 10px;
 }
-.home .container .popular-collection .cards .card img {
+.home .container .popular-collection .cards a .card img {
   border-radius: 5px;
   margin: 25px;
   width: 150px;
+  height: 200px;
 }
 
 @media (max-width: 767px) {
   .home {
     margin-top: 90px;
+  }
+}
+.product-details {
+  padding: 50px 0;
+}
+.product-details .container .back {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  text-decoration: none;
+}
+.product-details .container .product {
+  margin-top: 20px;
+  background-color: #fafafa;
+  padding: 40px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.product-details .container .product .section-1 img {
+  width: 300px;
+}
+.product-details .container .product .section-2 {
+  margin-left: 30px;
+}
+.product-details .container .product .section-2 h2 {
+  font-size: 34px;
+  font-weight: 500;
+}
+.product-details .container .product .section-2 h3 {
+  font-size: 22px;
+  color: #d48502;
+  margin: 10px 0;
+}
+.product-details .container .product .section-2 h4 {
+  font-size: 16px;
+  font-weight: 400;
+}
+.product-details .container .product .section-2 h4 span {
+  font-weight: 600;
+}
+.product-details .container .product .section-2 p {
+  color: #555555;
+  line-height: 1.2;
+  margin: 15px 0;
+}
+.product-details .container .product .section-2 .counter {
+  display: flex;
+  margin-bottom: 20px;
+}
+.product-details .container .product .section-2 .counter span {
+  padding: 20px;
+  border-radius: 3px;
+  background-color: #0f1702;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  transition: 0.3s ease-out;
+  cursor: pointer;
+}
+.product-details .container .product .section-2 .counter span:hover {
+  background-color: #fafafa;
+  color: #0f1702;
+  outline: #0f1702 1px solid;
+}
+.product-details .container .product .section-2 .counter p {
+  width: 20px;
+  height: 20px;
+  padding: 20px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-weight: 500;
+}
+.product-details .container .product .section-2 button {
+  padding: 10px 16px;
+  background-color: #d48502;
+  font-size: 17px;
+  color: #fafafa;
+  border: 2px solid #d48502;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  outline: none;
+  border-radius: 5px;
+}
+.product-details .container .product .section-2 button:hover {
+  background-color: #0f1702;
+  border-color: #0f1702;
+}
+
+@media (max-width: 767px) {
+  .product-details {
+    margin-top: 50px;
+  }
+  .product-details .container .product {
+    flex-direction: column;
+  }
+  .product-details .container .product .section-1 {
+    padding: 20px;
   }
 }
 .footer {

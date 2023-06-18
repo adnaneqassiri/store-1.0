@@ -1,6 +1,8 @@
-import Home from "./pages/Home";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
 
 export default function App() {
     let router = createBrowserRouter([
@@ -10,6 +12,14 @@ export default function App() {
                 {
                     path: "/",
                     element: <Home />,
+                },
+                {
+                    path: "/products",
+                    element: <Products />,
+                },
+                {
+                    path: "/products/:id",
+                    element: <ProductDetails />,
                 },
             ],
         },

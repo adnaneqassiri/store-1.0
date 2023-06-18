@@ -162,7 +162,7 @@ body {
             background-color: $main-color;
             position: relative;
             margin-top: 20px;
-            background-image: url("./imgs/bg-3.jpg");
+            background-image: url("https://img.freepik.com/free-photo/full-shot-man-running-with-shopping-bags_23-2149220643.jpg?w=740&t=st=1687107075~exp=1687107675~hmac=470f990a8d9f0527fb652acc3f4c70db9e09a370772e40962e3c0afdd5a66204");
             background-position: center;
             background-size: cover;
             // width: inherit;
@@ -195,25 +195,32 @@ body {
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
                 gap: 20px;
-                .card {
-                    margin: 0 auto;
-                    width: 200px;
-                    border-radius: 5px;
-                    background-color: $bg-color;
-                    text-align: center;
-                    padding-bottom: 25px;
-                    h2 {
-                        font-size: 16px;
-                        font-weight: 500;
-                        margin: 0;
-                    }
-                    p {
-                        font-size: 14px;
-                    }
-                    img {
+                a {
+                    text-decoration: none;
+                    .card {
+                        margin: 0 auto;
+                        width: 200px;
                         border-radius: 5px;
-                        margin: 25px;
-                        width: 150px;
+                        background-color: $bg-color;
+                        text-align: center;
+                        padding-bottom: 25px;
+                        h2 {
+                            color: $black-color;
+                            font-size: 16px;
+                            font-weight: 500;
+                            margin: 0;
+                        }
+                        p {
+                            font-size: 16px;
+                            color: $main-color;
+                            margin-top: 10px;
+                        }
+                        img {
+                            border-radius: 5px;
+                            margin: 25px;
+                            width: 150px;
+                            height: 200px;
+                        }
                     }
                 }
             }
@@ -223,6 +230,117 @@ body {
 @media (max-width: 767px) {
     .home {
         margin-top: 90px;
+    }
+}
+
+.product-details {
+    padding: 50px 0;
+    .container {
+        .back {
+            font-size: 18px;
+            font-weight: 500;
+            color: $black-color;
+            text-decoration: none;
+        }
+        .product {
+            margin-top: 20px;
+            background-color: $bg-color;
+            padding: 40px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            .section-1 {
+                img {
+                    width: 300px;
+                }
+            }
+            .section-2 {
+                margin-left: 30px;
+                h2 {
+                    font-size: 34px;
+                    font-weight: 500;
+                }
+                h3 {
+                    font-size: 22px;
+                    color: $main-color;
+                    margin: 10px 0;
+                }
+                h4 {
+                    font-size: 16px;
+                    font-weight: 400;
+                    span {
+                        font-weight: 600;
+                    }
+                }
+                p {
+                    color: $gray-color;
+                    line-height: 1.2;
+                    margin: 15px 0;
+                }
+                .counter {
+                    display: flex;
+                    margin-bottom: 20px;
+                    span {
+                        padding: 20px;
+                        border-radius: 3px;
+                        background-color: $second-color;
+                        color: $white-color;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 20px;
+                        height: 20px;
+                        transition: 0.3s ease-out;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: $bg-color;
+                            color: #0f1702;
+                            outline: $second-color 1px solid;
+                        }
+                    }
+                    p {
+                        width: 20px;
+                        height: 20px;
+                        padding: 20px;
+                        margin: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: $black-color;
+                        font-weight: 500;
+                    }
+                }
+                button {
+                    padding: 10px 16px;
+                    background-color: $main-color;
+                    font-size: 17px;
+                    color: $bg-color;
+                    border: 2px solid $main-color;
+                    transition: 0.3s ease-in-out;
+                    cursor: pointer;
+                    outline: none;
+                    border-radius: 5px;
+                    &:hover {
+                        background-color: $second-color;
+                        border-color: $second-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .product-details {
+        margin-top: 50px;
+        .container {
+            .product {
+                flex-direction: column;
+                .section-1 {
+                    padding: 20px;
+                }
+            }
+        }
     }
 }
 
