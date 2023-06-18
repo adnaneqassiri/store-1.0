@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useMemo, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
@@ -13,20 +13,23 @@ export default function Home() {
             .then((json) => setData(json));
     }, []);
     console.log(data);
-    let slides = [
-        {
-            url: "https://img.freepik.com/free-photo/full-shot-woman-sitting-chair_23-2149220652.jpg?size=626&ext=jpg",
-        },
-        {
-            url: "https://img.freepik.com/free-photo/studio-shot-pretty-black-woman-with-white-shopping-bag-standing-yellow-background-trendy-spring-fashionable-look_273443-10.jpg?size=626&ext=jpg",
-        },
-        {
-            url: "https://img.freepik.com/free-photo/side-view-woman-with-shopping-bags-putting-credit-card-her-pocket_23-2148684476.jpg?size=626&ext=jpg",
-        },
-        {
-            url: "https://img.freepik.com/free-photo/full-shot-man-running-with-shopping-bags_23-2149220643.jpg?w=740&t=st=1687107075~exp=1687107675~hmac=470f990a8d9f0527fb652acc3f4c70db9e09a370772e40962e3c0afdd5a66204",
-        },
-    ];
+    const slides = useMemo(
+        () => [
+            {
+                url: "https://img.freepik.com/free-photo/full-shot-woman-sitting-chair_23-2149220652.jpg?size=626&ext=jpg",
+            },
+            {
+                url: "https://img.freepik.com/free-photo/studio-shot-pretty-black-woman-with-white-shopping-bag-standing-yellow-background-trendy-spring-fashionable-look_273443-10.jpg?size=626&ext=jpg",
+            },
+            {
+                url: "https://img.freepik.com/free-photo/side-view-woman-with-shopping-bags-putting-credit-card-her-pocket_23-2148684476.jpg?size=626&ext=jpg",
+            },
+            {
+                url: "https://img.freepik.com/free-photo/full-shot-man-running-with-shopping-bags_23-2149220643.jpg?w=740&t=st=1687107075~exp=1687107675~hmac=470f990a8d9f0527fb652acc3f4c70db9e09a370772e40962e3c0afdd5a66204",
+            },
+        ],
+        []
+    );
     useEffect(() => {
         const handleSwitch = () => {
             setIndex((prevIndex) =>
@@ -36,13 +39,13 @@ export default function Home() {
         const interval = setInterval(handleSwitch, 6000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [slides.length]);
 
     useEffect(() => {
         if (contentRef.current) {
             contentRef.current.style.backgroundImage = `url(${slides[index].url})`;
         }
-    }, [index]);
+    }, [index, slides]);
 
     const handleLeftClick = () => {
         setIndex((prevIndex) =>
