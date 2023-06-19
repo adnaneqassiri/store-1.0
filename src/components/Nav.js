@@ -5,24 +5,24 @@ import {
     faXmark,
     faBars,
 } from "@fortawesome/free-solid-svg-icons";
-import { NavLink, Link, json } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function Nav() {
-    const [showCart, setShowCart] = useState(true);
+    // const [showCart, setShowCart] = useState(true);
     const [show, setShow] = useState(false);
-    const [cartId, setCartId] = useState(
-        localStorage.getItem("cart")
-            ? JSON.parse(localStorage.getItem("cart"))
-            : []
-    );
-    const [cartData, setCartData] = useState(
-        localStorage.getItem("products")
-            ? JSON.parse(localStorage.getItem("products"))
-            : []
-    );
-    console.log(cartData);
-    console.log(cartId);
+    // const [cartId, setCartId] = useState(
+    //     localStorage.getItem("cart")
+    //         ? JSON.parse(localStorage.getItem("cart"))
+    //         : []
+    // );
+    // const [cartData, setCartData] = useState(
+    //     localStorage.getItem("products")
+    //         ? JSON.parse(localStorage.getItem("products"))
+    //         : []
+    // );
+    // console.log(cartData);
+    // console.log(cartId);
 
     function shopCart() {
         setShowCart((p) => !p);
