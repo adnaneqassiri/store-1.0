@@ -24,9 +24,9 @@ export default function Nav() {
     // console.log(cartData);
     // console.log(cartId);
 
-    function shopCart() {
-        setShowCart((p) => !p);
-    }
+    // function shopCart() {
+    //     setShowCart((p) => !p);
+    // }
     function handleClick() {
         setShow((pValue) => !pValue);
     }
@@ -60,7 +60,7 @@ export default function Nav() {
                         </li>
                         <li>
                             <FontAwesomeIcon
-                                onClick={shopCart}
+                                // onClick={shopCart}
                                 icon={faCartShopping}
                             />
                         </li>
@@ -80,7 +80,7 @@ export default function Nav() {
                 >
                     <FontAwesomeIcon
                         style={{ marginRight: "20px", zIndex: -1 }}
-                        onClick={shopCart}
+                        // onClick={shopCart}
                         icon={faCartShopping}
                     />
 
