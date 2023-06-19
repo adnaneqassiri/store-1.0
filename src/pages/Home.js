@@ -7,12 +7,15 @@ export default function Home() {
     const contentRef = useRef(null);
     const [index, setIndex] = useState(1);
     const [data, setData] = useState([]);
+
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
             .then((res) => res.json())
-            .then((json) => setData(json));
+            .then((json) => {
+                setData(json);
+                localStorage.setItem("products", JSON.stringify(json));
+            });
     }, []);
-    console.log(data);
     const slides = useMemo(
         () => [
             {

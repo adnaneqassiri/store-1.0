@@ -55,9 +55,18 @@ body {
         justify-content: space-between;
         align-items: center;
         .logo {
-            img {
-                width: 70px;
-                height: 70px;
+            display: flex;
+            padding: 20px 0;
+            align-items: center;
+            a {
+                color: $black-color;
+                text-decoration: none;
+                font-size: 30px;
+                font-weight: 400;
+                span {
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                }
             }
         }
         .links {
@@ -235,6 +244,58 @@ body {
 @media (max-width: 767px) {
     .home {
         margin-top: 90px;
+    }
+}
+
+.cart {
+    width: 350px;
+    height: 100vh;
+    position: fixed;
+    z-index: 3;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    background-color: $second-color;
+    padding: 15px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    svg {
+        color: $white-color;
+        align-self: flex-end;
+        font-size: 22px;
+    }
+    ul {
+        list-style: none;
+        width: 100%;
+        margin-top: 10px;
+        li {
+            display: flex;
+            color: $black-color;
+            background-color: $bg-color;
+            width: 100%;
+            padding: 10px;
+            .section-1 {
+                img {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+            .section-2 {
+                margin-left: 10px;
+                display: flex;
+                height: 60px;
+                flex-direction: column;
+                justify-content: space-between;
+                h2 {
+                    font-size: 16px;
+                }
+                p {
+                    color: $main-color;
+                    font-size: 14px;
+                }
+            }
+        }
     }
 }
 

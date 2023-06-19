@@ -4,14 +4,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function ProductDetails() {
+    let { id } = useParams();
     let [result, setResult] = useState(1);
+    let [localData, setLocalData] = useState(
+        localStorage.getItem("cart")
+            ? JSON.parse(localStorage.getItem("cart"))
+            : []
+    );
+    function handleClick() {
+        setLocalData((p) => [...p, { id: id, result }]);
+        localStorage.setItem("cart", JSON.stringify(localData));
+        console.log(localStorage.getItem("cart"));
+    }
     function handleAddition() {
         setResult((p) => p + 1);
     }
     function handleSubtraction() {
         setResult((p) => (p <= 1 ? 1 : p - 1));
     }
-    let { id } = useParams();
     const [product, setProduct] = useState([]);
     useEffect(() => {
         fetch(`https://fakestoreapi.com/products/${id}`)
@@ -41,7 +51,7 @@ export default function ProductDetails() {
                             <p>{result}</p>
                             <span onClick={handleSubtraction}>-</span>
                         </div>
-                        <button>Add to cart</button>
+                        <button onClick={handleClick}>Add to cart</button>
                     </div>
                 </div>
             </div>
