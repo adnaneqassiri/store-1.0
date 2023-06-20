@@ -1,33 +1,23 @@
-import { useEffect, useState } from "react";
+import { useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { CartContext } from "../CartContext";
+import { products } from "../products";
 
 export default function ProductDetails() {
     let { id } = useParams();
-    let [result, setResult] = useState(1);
-    let [localData, setLocalData] = useState(
-        localStorage.getItem("cart")
-            ? JSON.parse(localStorage.getItem("cart"))
-            : []
-    );
-    function handleClick() {
-        setLocalData((p) => [...p, { id: id, result }]);
-        localStorage.setItem("cart", JSON.stringify(localData));
-        console.log(localStorage.getItem("cart"));
-    }
+    let [quantity, setQuantity] = useState(1);
+    const cart = useContext(CartContext);
+
     function handleAddition() {
-        setResult((p) => p + 1);
+        setQuantity((p) => p + 1);
     }
     function handleSubtraction() {
-        setResult((p) => (p <= 1 ? 1 : p - 1));
+        setQuantity((p) => (p <= 1 ? 1 : p - 1));
     }
-    const [product, setProduct] = useState([]);
-    useEffect(() => {
-        fetch(`https://fakestoreapi.com/products/${id}`)
-            .then((res) => res.json())
-            .then((json) => setProduct(json));
-    }, [id]);
+    const product = products.find((el) => el.id == id);
+
     return (
         <div className="product-details">
             <div className="container">
@@ -48,10 +38,17 @@ export default function ProductDetails() {
                         <p>{product.description}</p>
                         <div className="counter">
                             <span onClick={handleAddition}>+</span>
-                            <p>{result}</p>
+                            <p>{quantity}</p>
                             <span onClick={handleSubtraction}>-</span>
                         </div>
-                        <button onClick={handleClick}>Add to cart</button>
+                        <button
+                            onClick={() => {
+                                cart.addOneToCart(id, quantity);
+                                console.log(cart.items);
+                            }}
+                        >
+                            Add to cart
+                        </button>
                     </div>
                 </div>
             </div>

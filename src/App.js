@@ -2,8 +2,10 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
+import Purchase from "./pages/Purchase";
 import ProductDetails from "./pages/ProductDetails";
 import NotFound from "./pages/NotFound";
+import { CartProvider } from "./CartContext";
 
 export default function App() {
     let router = createBrowserRouter([
@@ -23,6 +25,10 @@ export default function App() {
                     element: <ProductDetails />,
                 },
                 {
+                    path: "purchase",
+                    element: <Purchase />,
+                },
+                {
                     path: "*",
                     element: <NotFound />,
                 },
@@ -31,7 +37,9 @@ export default function App() {
     ]);
     return (
         <>
-            <RouterProvider router={router} />
+            <CartProvider>
+                <RouterProvider router={router} />
+            </CartProvider>
         </>
     );
 }

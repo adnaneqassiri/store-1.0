@@ -2,20 +2,13 @@ import React, { useRef, useMemo, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { products } from "../products";
 
 export default function Home() {
     const contentRef = useRef(null);
     const [index, setIndex] = useState(1);
-    const [data, setData] = useState([]);
+    const [data] = useState(products);
 
-    useEffect(() => {
-        fetch("https://fakestoreapi.com/products")
-            .then((res) => res.json())
-            .then((json) => {
-                setData(json);
-                localStorage.setItem("products", JSON.stringify(json));
-            });
-    }, []);
     const slides = useMemo(
         () => [
             {
@@ -93,7 +86,7 @@ export default function Home() {
                             .map((el) => {
                                 return (
                                     <Link to={`/products/${el.id}`} key={el.id}>
-                                        <div className="card">
+                                        <div className="car-d">
                                             <img src={el.image} alt="" />
                                             <h2>{el.title}</h2>
                                             <p>${el.price}</p>

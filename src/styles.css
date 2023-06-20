@@ -81,10 +81,56 @@ body {
 .nav .container .links ul li svg:hover {
   color: #d48502;
 }
+.nav .container .links .cart-icon button {
+  background-color: #0f1702;
+  color: #fff;
+  padding: 0px 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: 0.3s ease-in-out;
+}
+.nav .container .links .cart-icon button div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav .container .links .cart-icon button div p {
+  margin: 8px;
+}
+.nav .container .links .cart-icon button:hover {
+  color: #0f1702;
+  background-color: #fff;
+  outline: 1px solid #0f1702;
+}
 .nav .container .mobile {
   display: none;
   transition: 0.3s;
   z-index: 2;
+}
+.nav .container .mobile button {
+  margin-right: 20px;
+  background-color: #0f1702;
+  color: #fff;
+  padding: 0px 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s ease-in-out;
+}
+.nav .container .mobile button div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav .container .mobile button div p {
+  margin: 8px;
+}
+.nav .container .mobile button:hover {
+  color: #0f1702;
+  background-color: #fff;
+  outline: 1px solid #0f1702;
 }
 
 .notFound .container {
@@ -115,9 +161,11 @@ body {
   }
   .nav .container .links ul {
     flex-direction: column;
+    align-items: center;
   }
   .nav .container .links ul li {
     margin: 8px;
+    margin: 8 auto;
   }
   .nav .container .links ul li a {
     color: #fff;
@@ -191,7 +239,7 @@ body {
 .home .container .popular-collection .cards a {
   text-decoration: none;
 }
-.home .container .popular-collection .cards a .card {
+.home .container .popular-collection .cards a .car-d {
   margin: 0 auto;
   width: 200px;
   border-radius: 5px;
@@ -199,18 +247,18 @@ body {
   text-align: center;
   padding-bottom: 25px;
 }
-.home .container .popular-collection .cards a .card h2 {
+.home .container .popular-collection .cards a .car-d h2 {
   color: #000;
   font-size: 16px;
   font-weight: 500;
   margin: 0;
 }
-.home .container .popular-collection .cards a .card p {
+.home .container .popular-collection .cards a .car-d p {
   font-size: 16px;
   color: #d48502;
   margin-top: 10px;
 }
-.home .container .popular-collection .cards a .card img {
+.home .container .popular-collection .cards a .car-d img {
   border-radius: 5px;
   margin: 25px;
   width: 150px;
@@ -222,54 +270,38 @@ body {
     margin-top: 90px;
   }
 }
-.cart {
-  width: 350px;
-  height: 100vh;
-  position: fixed;
-  z-index: 3;
-  overflow: auto;
-  left: 0;
-  top: 0;
-  background-color: #0f1702;
-  padding: 15px;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+.container .products .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
 }
-.cart svg {
-  color: #fff;
-  align-self: flex-end;
-  font-size: 22px;
+.container .products .cards a {
+  text-decoration: none;
 }
-.cart ul {
-  list-style: none;
-  width: 100%;
+.container .products .cards a .car-d {
+  margin: 0 auto;
+  width: 200px;
+  border-radius: 5px;
+  background-color: #fafafa;
+  text-align: center;
+  padding-bottom: 25px;
+}
+.container .products .cards a .car-d h2 {
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+.container .products .cards a .car-d p {
+  font-size: 16px;
+  color: #d48502;
   margin-top: 10px;
 }
-.cart ul li {
-  display: flex;
-  color: #000;
-  background-color: #fafafa;
-  width: 100%;
-  padding: 10px;
-}
-.cart ul li .section-1 img {
-  width: 60px;
-  height: 60px;
-}
-.cart ul li .section-2 {
-  margin-left: 10px;
-  display: flex;
-  height: 60px;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.cart ul li .section-2 h2 {
-  font-size: 16px;
-}
-.cart ul li .section-2 p {
-  color: #d48502;
-  font-size: 14px;
+.container .products .cards a .car-d img {
+  border-radius: 5px;
+  margin: 25px;
+  width: 150px;
+  height: 200px;
 }
 
 .product-details {
@@ -376,9 +408,306 @@ body {
     padding: 20px;
   }
 }
+.cart-items .price {
+  color: #d48502;
+  font-weight: 500;
+}
+.cart-items .cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cart-items .cart-item .right {
+  display: flex;
+  align-items: center;
+}
+.cart-items .cart-item .right h2 {
+  font-size: 20px;
+}
+.cart-items .cart-item .right .counter {
+  display: flex;
+  margin-bottom: 20px;
+}
+.cart-items .cart-item .right .counter span {
+  padding: 15px;
+  border-radius: 3px;
+  background-color: #0f1702;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  transition: 0.3s ease-out;
+  cursor: pointer;
+}
+.cart-items .cart-item .right .counter span:hover {
+  background-color: #fafafa;
+  color: #0f1702;
+  outline: #0f1702 1px solid;
+}
+.cart-items .cart-item .right .counter p {
+  width: 20px;
+  height: 20px;
+  padding: 15px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-weight: 500;
+}
+.cart-items .cart-item .right .remove-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cart-items .cart-item .right .remove-price p {
+  margin: 0;
+}
+.cart-items .cart-item .right .remove-price button {
+  padding: 8px 12px;
+  background-color: red;
+  font-size: 16px;
+  color: #fafafa;
+  border: 2px solid red;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  outline: none;
+  border-radius: 5px;
+}
+.cart-items .cart-item .right .remove-price button:hover {
+  background-color: #0f1702;
+  border-color: #0f1702;
+}
+.cart-items .cart-item img {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.checkOut {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+.checkOut h3 {
+  font-size: 18px;
+}
+.checkOut a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  background-color: #e91e63;
+  font-size: 16px;
+  border: 2px solid #e91e63;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  outline: none;
+  border-radius: 5px;
+}
+.checkOut a:hover {
+  background-color: #0f1702;
+  border-color: #0f1702;
+}
+
+.purchase .container h3 {
+  font-size: 22px;
+  font-weight: 500;
+  padding: 20px 0;
+}
+.purchase .container .validation {
+  padding: 30px 10px;
+  border-radius: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #d48502;
+  align-items: center;
+}
+.purchase .container .validation .comp-1 {
+  background-color: #fafafa;
+  padding: 10px;
+  border-radius: 5px;
+}
+.purchase .container .validation .comp-1 .cart-items .price {
+  color: #d48502;
+  font-weight: 500;
+}
+.purchase .container .validation .comp-1 .cart-items .cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.purchase .container .validation .comp-1 .cart-items .cart-item .right {
+  display: flex;
+  align-items: center;
+}
+.purchase .container .validation .comp-1 .cart-items .cart-item .right h2 {
+  font-size: 20px;
+}
+.purchase .container .validation .comp-1 .cart-items .cart-item .right .counter {
+  display: flex;
+  margin-bottom: 20px;
+}
+.purchase .container .validation .comp-1 .cart-items .cart-item .right .counter span {
+  padding: 15px;
+  border-radius: 3px;
+  background-color: #0f1702;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  transition: 0.3s ease-out;
+  cursor: pointer;
+}
+.purchase .container .validation .comp-1 .cart-items .cart-item .right .counter span:hover {
+  background-color: #fafafa;
+  color: #0f1702;
+  outline: #0f1702 1px solid;
+}
+.purchase .container .validation .comp-1 .cart-items .cart-item .right .counter p {
+  width: 20px;
+  height: 20px;
+  padding: 15px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-weight: 500;
+}
+.purchase .container .validation .comp-1 .cart-items .cart-item .right .remove-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.purchase .container .validation .comp-1 .cart-items .cart-item .right .remove-price p {
+  margin: 0;
+}
+.purchase .container .validation .comp-1 .cart-items .cart-item .right .remove-price button {
+  padding: 8px 12px;
+  background-color: red;
+  font-size: 16px;
+  color: #fafafa;
+  border: 2px solid red;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  outline: none;
+  border-radius: 5px;
+}
+.purchase .container .validation .comp-1 .cart-items .cart-item .right .remove-price button:hover {
+  background-color: #0f1702;
+  border-color: #0f1702;
+}
+.purchase .container .validation .comp-1 .cart-items .cart-item img {
+  width: 100px;
+  margin-right: 20px;
+}
+.purchase .container .validation .comp-2 {
+  background-color: #0f1702;
+  padding: 20px;
+  border-radius: 10px;
+}
+.purchase .container .validation .comp-2 form {
+  width: 380px;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.purchase .container .validation .comp-2 form h2 {
+  align-self: flex-start;
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #fff;
+}
+.purchase .container .validation .comp-2 form .inputbox {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.purchase .container .validation .comp-2 form .inputbox label {
+  font-size: 14px;
+  color: #fff;
+}
+.purchase .container .validation .comp-2 form .inputbox input {
+  width: 100%;
+  margin-top: 5px;
+  border: none;
+  border-radius: 5px;
+  border-bottom: 4px solid #fff;
+  background-color: #fff;
+  outline: none;
+  color: #0f1702;
+  padding: 8px 12px;
+}
+.purchase .container .validation .comp-2 form .inputbox input:focus {
+  border-block-color: #d48502;
+}
+.purchase .container .validation .comp-2 form .inputbox.check label {
+  display: block;
+}
+.purchase .container .validation .comp-2 form .inputbox.check input[type=checkbox] {
+  width: 18px;
+  height: 18px;
+}
+.purchase .container .validation .comp-2 form input[type=submit] {
+  font-size: 16px;
+  background-color: #fafafa;
+  color: #0f1702;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  padding: 9px 16px;
+  margin-left: 10px;
+  font-weight: 600;
+}
+.purchase .container .validation .comp-2 form input[type=submit]:hover {
+  background-color: #0f1702;
+  color: #fff;
+  outline: 2px solid #fff;
+}
+.purchase .container .validation .comp-2 form .check {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .purchase {
+    margin-top: 0px;
+  }
+  .purchase .container .validation {
+    background-color: #fff;
+    flex-direction: column;
+  }
+  .purchase .container .validation .comp-1 {
+    background-color: #fff;
+    margin-bottom: 20px;
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+  }
+  .purchase .container .validation .comp-2 {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .purchase .container .validation .comp-2 form {
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .purchase {
+    margin-top: 80px;
+  }
+}
 .footer {
   padding: 20px 0;
-  width: 100%;
 }
 .footer .container {
   background-color: #0f1702;
@@ -420,10 +749,15 @@ body {
 }
 
 @media (max-width: 767px) {
+  .footer {
+    width: 90%;
+    margin: 0 auto;
+  }
   .footer .container {
+    width: 100%;
+    padding: 10px;
     flex-direction: column;
     align-items: center;
-    margin: 0 10px;
   }
   .footer .container div {
     margin-bottom: 20px;

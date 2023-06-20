@@ -6,29 +6,28 @@ import {
     faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import Cart from "./Cart";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { CartContext } from "../CartContext";
 
 export default function Nav() {
-    // const [showCart, setShowCart] = useState(true);
+    const cart = useContext(CartContext);
+    const nItems = cart.items.reduce((pV, cV, id) => {
+        return pV + cV.quantity;
+    }, 0);
+    console.log(nItems);
     const [show, setShow] = useState(false);
-    // const [cartId, setCartId] = useState(
-    //     localStorage.getItem("cart")
-    //         ? JSON.parse(localStorage.getItem("cart"))
-    //         : []
-    // );
-    // const [cartData, setCartData] = useState(
-    //     localStorage.getItem("products")
-    //         ? JSON.parse(localStorage.getItem("products"))
-    //         : []
-    // );
-    // console.log(cartData);
-    // console.log(cartId);
-
-    // function shopCart() {
-    //     setShowCart((p) => !p);
-    // }
+    const [showCart, setShowCart] = useState(false);
+    const handleShowCart = () => {
+        setShowCart(true);
+    };
+    const handleClose = () => setShowCart(false);
     function handleClick() {
         setShow((pValue) => !pValue);
+    }
+    function handleCloseNav() {
+        setShow(false);
     }
     return (
         <div className="nav">
@@ -43,28 +42,38 @@ export default function Nav() {
                     style={show ? { right: "0px" } : { right: "-300px" }}
                 >
                     <ul>
-                        <li>
+                        <li onClick={handleCloseNav}>
                             <NavLink to="/">Home</NavLink>
                         </li>
-                        <li>
-                            <NavLink to="brand">Brand</NavLink>
+                        <li onClick={handleCloseNav}>
+                            <NavLink to="products">Products</NavLink>
                         </li>
-                        <li>
-                            <NavLink to="shop">Shop</NavLink>
-                        </li>
-                        <li>
+                        <li onClick={handleCloseNav}>
                             <NavLink to="woman">Woman</NavLink>
                         </li>
-                        <li>
+                        <li onClick={handleCloseNav}>
                             <NavLink to="men">Man</NavLink>
                         </li>
-                        <li>
-                            <FontAwesomeIcon
-                                // onClick={shopCart}
-                                icon={faCartShopping}
-                            />
+                        <li onClick={handleCloseNav} className="cart-icon">
+                            <button onClick={handleShowCart}>
+                                {nItems ? (
+                                    <div>
+                                        <FontAwesomeIcon
+                                            icon={faCartShopping}
+                                        />
+                                        <p>Cart ({nItems} items)</p>
+                                    </div>
+                                ) : (
+                                    <div>
+                                        <FontAwesomeIcon
+                                            icon={faCartShopping}
+                                        />
+                                        <p>Cart</p>
+                                    </div>
+                                )}
+                            </button>
                         </li>
-                        <li>
+                        <li onClick={handleCloseNav}>
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </li>
                     </ul>
@@ -78,50 +87,26 @@ export default function Nav() {
                             : { zIndex: 1, color: "#000" }
                     }
                 >
-                    <FontAwesomeIcon
-                        style={{ marginRight: "20px", zIndex: -1 }}
-                        // onClick={shopCart}
-                        icon={faCartShopping}
-                    />
-
+                    <button onClick={handleShowCart}>
+                        {nItems ? (
+                            <div>
+                                <FontAwesomeIcon icon={faCartShopping} />
+                                <p>Cart ({nItems} items)</p>
+                            </div>
+                        ) : (
+                            <div>
+                                <FontAwesomeIcon icon={faCartShopping} />
+                                <p>Cart</p>
+                            </div>
+                        )}
+                    </button>
                     {show ? (
                         <FontAwesomeIcon onClick={handleClick} icon={faXmark} />
                     ) : (
                         <FontAwesomeIcon onClick={handleClick} icon={faBars} />
                     )}
                 </div>
-                {/* <div
-                    className="cart"
-                    style={{
-                        display: showCart ? "flex" : "none",
-                    }}
-                >
-                    <FontAwesomeIcon
-                        onClick={() => {
-                            setShowCart(false);
-                        }}
-                        icon={faXmark}
-                    />
-                    <ul>
-                        {cartId.map((el) => {
-                            let cartEl = cartData.filter((e) => {
-                                return e.id == el.id;
-                            })[0];
-
-                            return (
-                                <li>
-                                    <div className="section-1">
-                                        <img src={cartEl.image} alt="" />
-                                    </div>
-                                    <div className="section-2">
-                                        <h2>{cartEl.title}</h2>
-                                        <p>{cartEl.price}</p>
-                                    </div>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div> */}
+                <Cart show={showCart} handleClose={handleClose} />
             </div>
         </div>
     );
