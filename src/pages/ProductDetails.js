@@ -16,7 +16,9 @@ export default function ProductDetails() {
     function handleSubtraction() {
         setQuantity((p) => (p <= 1 ? 1 : p - 1));
     }
-    const product = products.find((el) => el.id == id);
+    const product = products.find((el) => {
+        return el.id === +id;
+    });
 
     return (
         <div className="product-details">
