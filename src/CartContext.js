@@ -51,7 +51,7 @@ export const CartProvider = ({ children }) => {
 
     const deleteFromCart = (id) => {
         //  filtering the products in cart and deleting the product
-        setCartProducts((p) => p.filter((el) => el.id != id));
+        setCartProducts((p) => p.filter((el) => el.id !== id));
     };
 
     const getTotalCost = () => {

@@ -6,19 +6,21 @@ import { Link } from "react-router-dom";
 
 export default function Cart({ show, handleClose }) {
     let cart = useContext(CartContext);
+
     function getTotalCost() {
         let totalCost = 0;
 
-        cart.items.map((el) => {
+        cart.items.forEach((el) => {
             const productData = products.find((e) => {
                 return e.id === +el.id;
             });
             totalCost += productData.price * el.quantity;
             console.log(productData.price, el.quantity);
-            return null;
         });
+
         return totalCost;
     }
+
     return (
         <>
             <Modal show={show} onHide={handleClose}>
@@ -26,75 +28,76 @@ export default function Cart({ show, handleClose }) {
                     <Modal.Title>Shopping Cart</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className="cart-items">
-                        {cart.items.map((e) => {
-                            let product = products.find((el) => el.id === e.id);
-                            if (product) {
+                    {cart.items.length !== 0 ? (
+                        <div className="cart-items">
+                            {cart.items.map((e) => {
+                                let product = products.find(
+                                    (el) => el.id === +e.id
+                                );
                                 return (
-                                    <>
-                                        <div className="cart-item">
-                                            <div className="right">
-                                                <div className="section-1">
-                                                    <img
-                                                        src={product.image}
-                                                        alt=""
-                                                    />
+                                    <div className="cart-item">
+                                        <div className="right">
+                                            <div className="section-1">
+                                                <img
+                                                    src={product.image}
+                                                    alt=""
+                                                />
+                                            </div>
+                                            <div className="section-2">
+                                                <h2>{product.title}</h2>
+                                                <div className="counter">
+                                                    <span
+                                                        onClick={() => {
+                                                            cart.addOneToCart(
+                                                                e.id,
+                                                                1
+                                                            );
+                                                        }}
+                                                    >
+                                                        +
+                                                    </span>
+                                                    <p>{e.quantity}</p>
+                                                    <span
+                                                        onClick={() => {
+                                                            cart.removeOneFromCart(
+                                                                e.id
+                                                            );
+                                                        }}
+                                                    >
+                                                        -
+                                                    </span>
                                                 </div>
-                                                <div className="section-2">
-                                                    <h2>{product.title}</h2>
-                                                    <div className="counter">
-                                                        <span
-                                                            onClick={() => {
-                                                                cart.addOneToCart(
-                                                                    e.id,
-                                                                    1
-                                                                );
-                                                            }}
-                                                        >
-                                                            +
-                                                        </span>
-                                                        <p>{e.quantity}</p>
-                                                        <span
-                                                            onClick={() => {
-                                                                cart.removeOneFromCart(
-                                                                    e.id
-                                                                );
-                                                            }}
-                                                        >
-                                                            -
-                                                        </span>
+                                                <div className="remove-price">
+                                                    <p className="price">
+                                                        Unit : ${product.price}
+                                                    </p>
+                                                    <div className="left price">
+                                                        Total : $
+                                                        {(
+                                                            product.price *
+                                                            e.quantity
+                                                        ).toFixed(2)}
                                                     </div>
-                                                    <div className="remove-price">
-                                                        <p className="price">
-                                                            Unit : $
-                                                            {product.price}
-                                                        </p>
-                                                        <div className="left price">
-                                                            Total : $
-                                                            {(
-                                                                product.price *
-                                                                e.quantity
-                                                            ).toFixed(2)}
-                                                        </div>
-                                                        <button
-                                                            onClick={() =>
-                                                                cart.deleteFromCart(
-                                                                    e.id
-                                                                )
-                                                            }
-                                                        >
-                                                            Remove
-                                                        </button>
-                                                    </div>
+                                                    <button
+                                                        onClick={() =>
+                                                            cart.deleteFromCart(
+                                                                e.id
+                                                            )
+                                                        }
+                                                    >
+                                                        Remove
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
-                                    </>
+                                    </div>
                                 );
-                            }
-                            return <h1>hey</h1>;
-                        })}
-                    </div>
+                            })}
+                        </div>
+                    ) : (
+                        <h1>Empty cart</h1>
+                    )}
+
                     <div className="checkOut">
                         <h3>
                             Total :

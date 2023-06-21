@@ -1,120 +1,103 @@
+import React from "react";
 import { useContext } from "react";
 import { CartContext } from "../CartContext";
 import { products } from "../products";
 
 export default function Purchase() {
     let cart = useContext(CartContext);
+
     function getTotalCost() {
         let totalCost = 0;
-        console.log(products);
-        cart.items.map((el) => {
-            const productData = products.find((e) => +e.id === el.id);
+
+        cart.items.forEach((el) => {
+            const productData = products.find((e) => e.id === +el.id);
             totalCost += productData.price * el.quantity;
-            console.log(productData.price, el.quantity);
-            return null;
         });
+
         return totalCost;
     }
+
     return (
         <>
-            {cart.items !== [] ? (
+            {cart.items.length !== 0 ? (
                 <div className="purchase">
                     <div className="container">
                         <h3>
-                            Currently we only have cash on delivery method of
-                            paying
+                            Currently, we only have cash on delivery as a
+                            payment method.
                         </h3>
                         <div className="validation">
                             <div className="comp-1">
                                 <div className="cart-items">
                                     {cart.items.map((e) => {
                                         let product = products.find(
-                                            (el) => +el.id === e.id
+                                            (el) => +el.id === +e.id
                                         );
-                                        if (product) {
-                                            return (
-                                                <>
-                                                    <div className="cart-item">
-                                                        <div className="right">
-                                                            <div className="section-1">
-                                                                <img
-                                                                    src={
-                                                                        product.image
-                                                                    }
-                                                                    alt=""
-                                                                />
+
+                                        return (
+                                            <div className="cart-item">
+                                                <div className="right">
+                                                    <div className="section-1">
+                                                        <img
+                                                            src={product.image}
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div className="section-2">
+                                                        <h2>{product.title}</h2>
+                                                        <div className="counter">
+                                                            <span
+                                                                onClick={() => {
+                                                                    cart.addOneToCart(
+                                                                        e.id,
+                                                                        1
+                                                                    );
+                                                                }}
+                                                            >
+                                                                +
+                                                            </span>
+                                                            <p>{e.quantity}</p>
+                                                            <span
+                                                                onClick={() => {
+                                                                    cart.removeOneFromCart(
+                                                                        e.id
+                                                                    );
+                                                                }}
+                                                            >
+                                                                -
+                                                            </span>
+                                                        </div>
+                                                        <div className="remove-price">
+                                                            <p className="price">
+                                                                Unit : $
+                                                                {product.price}
+                                                            </p>
+                                                            <div className="left price">
+                                                                Total : $
+                                                                {(
+                                                                    product.price *
+                                                                    e.quantity
+                                                                ).toFixed(2)}
                                                             </div>
-                                                            <div className="section-2">
-                                                                <h2>
-                                                                    {
-                                                                        product.title
-                                                                    }
-                                                                </h2>
-                                                                <div className="counter">
-                                                                    <span
-                                                                        onClick={() => {
-                                                                            cart.addOneToCart(
-                                                                                e.id,
-                                                                                1
-                                                                            );
-                                                                        }}
-                                                                    >
-                                                                        +
-                                                                    </span>
-                                                                    <p>
-                                                                        {
-                                                                            e.quantity
-                                                                        }
-                                                                    </p>
-                                                                    <span
-                                                                        onClick={() => {
-                                                                            cart.removeOneFromCart(
-                                                                                e.id
-                                                                            );
-                                                                        }}
-                                                                    >
-                                                                        -
-                                                                    </span>
-                                                                </div>
-                                                                <div className="remove-price">
-                                                                    <p className="price">
-                                                                        Unit : $
-                                                                        {
-                                                                            product.price
-                                                                        }
-                                                                    </p>
-                                                                    <div className="left price">
-                                                                        Total :
-                                                                        $
-                                                                        {(
-                                                                            product.price *
-                                                                            e.quantity
-                                                                        ).toFixed(
-                                                                            2
-                                                                        )}
-                                                                    </div>
-                                                                    <button
-                                                                        onClick={() =>
-                                                                            cart.deleteFromCart(
-                                                                                e.id
-                                                                            )
-                                                                        }
-                                                                    >
-                                                                        Remove
-                                                                    </button>
-                                                                </div>
-                                                            </div>
+                                                            <button
+                                                                onClick={() =>
+                                                                    cart.deleteFromCart(
+                                                                        e.id
+                                                                    )
+                                                                }
+                                                            >
+                                                                Remove
+                                                            </button>
                                                         </div>
                                                     </div>
-                                                </>
-                                            );
-                                        }
-                                        return <h1>hey</h1>;
+                                                </div>
+                                            </div>
+                                        );
                                     })}
                                 </div>
                                 <div className="checkOut">
                                     <h3>
-                                        Total :
+                                        Total :{" "}
                                         <span className="price">
                                             ${getTotalCost().toFixed(2)}
                                         </span>
@@ -124,7 +107,7 @@ export default function Purchase() {
                             <div className="comp-2">
                                 <form>
                                     <div class="inputbox">
-                                        <label for="">Full name:</label>
+                                        <label htmlFor="name">Full name:</label>
                                         <br />
                                         <input
                                             name="name"
@@ -135,7 +118,7 @@ export default function Purchase() {
                                         />
                                     </div>
                                     <div class="inputbox">
-                                        <label for="">Email:</label>
+                                        <label htmlFor="email">Email:</label>
                                         <br />
                                         <input
                                             name="email"
@@ -146,7 +129,7 @@ export default function Purchase() {
                                         />
                                     </div>
                                     <div class="inputbox">
-                                        <label for="">City:</label>
+                                        <label htmlFor="city">City:</label>
                                         <br />
                                         <input
                                             name="city"
@@ -157,7 +140,9 @@ export default function Purchase() {
                                         />
                                     </div>
                                     <div class="inputbox">
-                                        <label for="">Address:</label>
+                                        <label htmlFor="address">
+                                            Address:
+                                        </label>
                                         <br />
                                         <input
                                             name="address"
@@ -168,7 +153,9 @@ export default function Purchase() {
                                         />
                                     </div>
                                     <div class="inputbox check">
-                                        <label for="">I'm sure</label>
+                                        <label htmlFor="checkbox">
+                                            I'm sure
+                                        </label>
                                         <input
                                             type="checkbox"
                                             name="checkbox"
@@ -176,11 +163,13 @@ export default function Purchase() {
                                         />
                                     </div>
                                     <div class="inputbox check">
-                                        <label for="">Gift Packing</label>
+                                        <label htmlFor="giftPacking">
+                                            Gift Packing
+                                        </label>
                                         <input
                                             type="checkbox"
                                             name="checkbox"
-                                            id="checkbox"
+                                            id="giftPacking"
                                         />
                                     </div>
                                     <input
@@ -193,7 +182,9 @@ export default function Purchase() {
                     </div>
                 </div>
             ) : (
-                <h2>nothing in cart</h2>
+                <div className="container">
+                    <h3>put something in cart first dickhead</h3>
+                </div>
             )}
         </>
     );
