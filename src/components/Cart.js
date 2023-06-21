@@ -8,11 +8,14 @@ export default function Cart({ show, handleClose }) {
     let cart = useContext(CartContext);
     function getTotalCost() {
         let totalCost = 0;
-        console.log(products);
+
         cart.items.map((el) => {
-            const productData = products.find((e) => e.id == el.id);
+            const productData = products.find((e) => {
+                return e.id === +el.id;
+            });
             totalCost += productData.price * el.quantity;
             console.log(productData.price, el.quantity);
+            return null;
         });
         return totalCost;
     }
@@ -25,7 +28,7 @@ export default function Cart({ show, handleClose }) {
                 <Modal.Body>
                     <div className="cart-items">
                         {cart.items.map((e) => {
-                            let product = products.find((el) => el.id == e.id);
+                            let product = products.find((el) => el.id === e.id);
                             if (product) {
                                 return (
                                     <>

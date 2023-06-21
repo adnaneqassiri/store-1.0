@@ -12,6 +12,7 @@ export default function Purchase() {
             const productData = products.find((e) => e.id == el.id);
             totalCost += productData.price * el.quantity;
             console.log(productData.price, el.quantity);
+            return null;
         });
         return totalCost;
     }
@@ -29,7 +30,7 @@ export default function Purchase() {
                                 <div className="cart-items">
                                     {cart.items.map((e) => {
                                         let product = products.find(
-                                            (el) => el.id == e.id
+                                            (el) => +el.id === e.id
                                         );
                                         if (product) {
                                             return (
