@@ -6,8 +6,19 @@ import Purchase from "./pages/Purchase";
 import ProductDetails from "./pages/ProductDetails";
 import NotFound from "./pages/NotFound";
 import { CartProvider } from "./CartContext";
+import { useState, useEffect } from "react";
+import Modal from "./components/Modal";
 
 export default function App() {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShow(true);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, []);
     let router = createBrowserRouter([
         {
             element: <MainLayout />,
@@ -37,6 +48,7 @@ export default function App() {
     ]);
     return (
         <>
+            <Modal show={show} handleClose={handleClose} />
             <CartProvider>
                 <RouterProvider router={router} />
             </CartProvider>
