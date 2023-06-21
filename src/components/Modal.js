@@ -13,7 +13,7 @@ export default function Cart({ show, handleClose }) {
         <>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>NB</Modal.Title>
+                    <Modal.Title>Alert</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <p style={style}>
