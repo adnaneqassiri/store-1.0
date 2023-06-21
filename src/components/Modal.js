@@ -17,8 +17,8 @@ export default function Cart({ show, handleClose }) {
                 </Modal.Header>
                 <Modal.Body>
                     <p style={style}>
-                        All the data in this component is fake, it's just a
-                        store template. Enjoy browsing! By FIEXX56
+                        All the data in this website is fake, it's just a store
+                        template. Enjoy browsing! By FIEXX56
                     </p>
                 </Modal.Body>
             </Modal>
