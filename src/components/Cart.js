@@ -92,6 +92,7 @@ export default function Cart({ show, handleClose }) {
                                     </>
                                 );
                             }
+                            return <h1>hey</h1>;
                         })}
                     </div>
                     <div className="checkOut">

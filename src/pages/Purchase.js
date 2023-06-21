@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../CartContext";
 import { products } from "../products";
-import { faHourglass2 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Purchase() {
     let cart = useContext(CartContext);
@@ -9,7 +8,7 @@ export default function Purchase() {
         let totalCost = 0;
         console.log(products);
         cart.items.map((el) => {
-            const productData = products.find((e) => e.id == el.id);
+            const productData = products.find((e) => +e.id === el.id);
             totalCost += productData.price * el.quantity;
             console.log(productData.price, el.quantity);
             return null;
@@ -18,7 +17,7 @@ export default function Purchase() {
     }
     return (
         <>
-            {cart.items != [] ? (
+            {cart.items !== [] ? (
                 <div className="purchase">
                     <div className="container">
                         <h3>
@@ -110,6 +109,7 @@ export default function Purchase() {
                                                 </>
                                             );
                                         }
+                                        return <h1>hey</h1>;
                                     })}
                                 </div>
                                 <div className="checkOut">
