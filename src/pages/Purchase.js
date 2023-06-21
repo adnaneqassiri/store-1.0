@@ -182,7 +182,7 @@ export default function Purchase() {
                     </div>
                 </div>
             ) : (
-                <div className="container">
+                <div className="container" style={{ marginTop: "100px" }}>
                     <h3>put something in cart first dickhead</h3>
                 </div>
             )}

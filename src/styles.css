@@ -677,7 +677,7 @@ body {
 
 @media (max-width: 992px) {
   .purchase {
-    margin-top: 0px;
+    margin-top: 80px;
   }
   .purchase .container .validation {
     background-color: #fff;
@@ -704,6 +704,9 @@ body {
 @media (max-width: 767px) {
   .purchase {
     margin-top: 80px;
+  }
+  .products {
+    margin-top: 100px;
   }
 }
 .footer {
