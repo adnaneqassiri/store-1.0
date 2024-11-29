@@ -1,16 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 * ::-moz-selection {
-  background-color: #d48502;
+  background-color: #e91e63;
   color: #fff;
 }
 * ::selection {
-  background-color: #d48502;
+  background-color: #e91e63;
   color: #fff;
 }
 
@@ -72,14 +71,14 @@ body {
   text-decoration: none;
 }
 .nav .container .links ul li a:hover {
-  color: #d48502;
+  color: #e91e63;
   text-decoration: underline;
 }
 .nav .container .links ul li svg {
   margin: 8px;
 }
 .nav .container .links ul li svg:hover {
-  color: #d48502;
+  color: #e91e63;
 }
 .nav .container .links .cart-icon button {
   background-color: #0f1702;
@@ -150,7 +149,7 @@ body {
     position: absolute;
     right: 0;
     display: flex;
-    background-color: #d48502;
+    background-color: #e91e63;
     width: 300px;
     height: 100vh;
     padding-top: 100px;
@@ -195,11 +194,11 @@ body {
   margin: 20px 0;
 }
 .home .container h2 span {
-  color: #d48502;
+  color: #e91e63;
   font-weight: 600;
 }
 .home .container .content {
-  background-color: #d48502;
+  background-color: #e91e63;
   position: relative;
   margin-top: 20px;
   background-image: url("https://img.freepik.com/free-photo/full-shot-man-running-with-shopping-bags_23-2149220643.jpg?w=740&t=st=1687107075~exp=1687107675~hmac=470f990a8d9f0527fb652acc3f4c70db9e09a370772e40962e3c0afdd5a66204");
@@ -255,7 +254,7 @@ body {
 }
 .home .container .popular-collection .cards a .car-d p {
   font-size: 16px;
-  color: #d48502;
+  color: #e91e63;
   margin-top: 10px;
 }
 .home .container .popular-collection .cards a .car-d img {
@@ -294,7 +293,7 @@ body {
 }
 .container .products .cards a .car-d p {
   font-size: 16px;
-  color: #d48502;
+  color: #e91e63;
   margin-top: 10px;
 }
 .container .products .cards a .car-d img {
@@ -333,7 +332,7 @@ body {
 }
 .product-details .container .product .section-2 h3 {
   font-size: 22px;
-  color: #d48502;
+  color: #e91e63;
   margin: 10px 0;
 }
 .product-details .container .product .section-2 h4 {
@@ -383,10 +382,10 @@ body {
 }
 .product-details .container .product .section-2 button {
   padding: 10px 16px;
-  background-color: #d48502;
+  background-color: #e91e63;
   font-size: 17px;
   color: #fafafa;
-  border: 2px solid #d48502;
+  border: 2px solid #e91e63;
   transition: 0.3s ease-in-out;
   cursor: pointer;
   outline: none;
@@ -409,7 +408,7 @@ body {
   }
 }
 .cart-items .price {
-  color: #d48502;
+  color: #e91e63;
   font-weight: 500;
 }
 .cart-items .cart-item {
@@ -521,8 +520,7 @@ body {
   border-radius: 10px;
   display: flex;
   width: 100%;
-  justify-content: space-between;
-  background-color: #d48502;
+  justify-content: center;
   align-items: center;
 }
 .purchase .container .validation .comp-1 {
@@ -531,7 +529,7 @@ body {
   border-radius: 5px;
 }
 .purchase .container .validation .comp-1 .cart-items .price {
-  color: #d48502;
+  color: #e91e63;
   font-weight: 500;
 }
 .purchase .container .validation .comp-1 .cart-items .cart-item {
@@ -644,7 +642,7 @@ body {
   padding: 8px 12px;
 }
 .purchase .container .validation .comp-2 form .inputbox input:focus {
-  border-block-color: #d48502;
+  border-block-color: #e91e63;
 }
 .purchase .container .validation .comp-2 form .inputbox.check label {
   display: block;
