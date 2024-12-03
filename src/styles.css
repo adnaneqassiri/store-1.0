@@ -765,4 +765,125 @@ body {
     width: 150px;
     margin: 0 auto;
   }
+}
+.myproducts .container table {
+  width: 100%;
+}
+.myproducts .container table th {
+  font-size: 14px;
+  padding: 5px 10px;
+}
+.myproducts .container table th a,
+.myproducts .container table th button {
+  padding: 5px 10px;
+  width: 75px;
+  outline: none;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #e91e63;
+  color: #fff;
+  transition: 0.2s ease-in;
+}
+.myproducts .container table th a:hover,
+.myproducts .container table th button:hover {
+  background-color: #0f1702;
+}
+.myproducts .container table th .del-all {
+  background-color: #000;
+}
+.myproducts .container table th .del-all:hover {
+  background-color: #e91e63;
+}
+.myproducts .container table th .ajouter {
+  background-color: green;
+}
+.myproducts .container table tbody td {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.myproducts .container table tbody td a,
+.myproducts .container table tbody td button {
+  width: 75px;
+  text-decoration: none;
+  padding: 5px 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #e91e63;
+  color: #fff;
+  transition: 0.2s ease-in;
+}
+.myproducts .container table tbody td a:hover,
+.myproducts .container table tbody td button:hover {
+  background-color: #0f1702;
+}
+.myproducts .container table tbody td .del {
+  background-color: red;
+}
+
+.modifier-produit .container,
+.ajouter-produit .container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #e91e63;
+  border-radius: 5px;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.modifier-produit .container form,
+.ajouter-produit .container form {
+  width: 80%;
+}
+.modifier-produit .container form input,
+.modifier-produit .container form textarea,
+.ajouter-produit .container form input,
+.ajouter-produit .container form textarea {
+  padding: 5px 5px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  width: 100%;
+  font-size: 14px;
+}
+.modifier-produit .container form div,
+.ajouter-produit .container form div {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.modifier-produit .container form div label,
+.ajouter-produit .container form div label {
+  font-size: 20px;
+  color: #fff;
+  margin-right: 20px;
+}
+.modifier-produit .container form div select,
+.ajouter-produit .container form div select {
+  background-color: #fff;
+  color: #000;
+  padding: 5px 12px;
+  outline: none;
+  border-radius: 3px;
+}
+.modifier-produit .container form .buttons,
+.ajouter-produit .container form .buttons {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}
+.modifier-produit .container form .buttons button,
+.ajouter-produit .container form .buttons button {
+  text-decoration: none;
+  margin-left: 10px;
+  padding: 5px 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #0f1702;
+  color: #fff;
+  transition: 0.2s ease-in;
 }/*# sourceMappingURL=styles.css.map */

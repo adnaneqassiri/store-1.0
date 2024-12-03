@@ -48,10 +48,13 @@ export default function Nav() {
               <NavLink to="products">Products</NavLink>
             </li>
             <li onClick={handleCloseNav}>
-              <NavLink to="woman">Woman</NavLink>
+              <NavLink to="myProducts">My Products</NavLink>
             </li>
             <li onClick={handleCloseNav}>
-              <NavLink to="men">Man</NavLink>
+              <NavLink to="contact">Contact</NavLink>
+            </li>
+            <li onClick={handleCloseNav}>
+              <NavLink to="about">About us</NavLink>
             </li>
             <li onClick={handleCloseNav} className="cart-icon">
               <button onClick={handleShowCart}>

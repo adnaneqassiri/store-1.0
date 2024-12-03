@@ -22,9 +22,6 @@ export default function Purchase() {
       {cart.items.length !== 0 ? (
         <div className="purchase">
           <div className="container">
-            <h3>
-              Currently, we only have cash on delivery as a payment method.
-            </h3>
             <div className="validation">
               <div className="comp-1">
                 <div className="cart-items">
