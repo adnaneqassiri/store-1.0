@@ -22,7 +22,7 @@ export default function ProductDetails() {
     axios
       .get(`http://localhost:3000/products/${id}`)
       .then((res) => {
-        setProduit(res);
+        setProduit(res.data);
       })
       .catch((err) => console.log(err));
   }, [id]);
@@ -38,26 +38,30 @@ export default function ProductDetails() {
             {/* <img src={product.image} alt="" /> */}
           </div>
           <div className="section-2">
-            <h2>{produit.NomProduit}</h2>
-            <h3>${produit.Prix}</h3>
-            <h4>
-              <span>Category : </span>
-              {produit.Category}
-            </h4>
-            <p>{produit.Description}</p>
-            <div className="counter">
-              <span onClick={handleAddition}>+</span>
-              <p>{quantity}</p>
-              <span onClick={handleSubtraction}>-</span>
+            <div className="sous-sec1">
+              <h2>{produit.NomProduit}</h2>
+              <h3>{produit.Prix} DH</h3>
+              <h4>
+                <span>Category : </span>
+                {produit.Categorie}
+              </h4>
+              <p>{produit.Description}</p>
             </div>
-            <button
-              onClick={() => {
-                cart.addOneToCart(id, quantity);
-                console.log(cart.items);
-              }}
-            >
-              Add to cart
-            </button>
+            <div className="sous-sec2">
+              <div className="counter">
+                <span onClick={handleAddition}>+</span>
+                <p>{quantity}</p>
+                <span onClick={handleSubtraction}>-</span>
+              </div>
+              <button
+                onClick={() => {
+                  cart.addOneToCart(id, quantity);
+                  console.log(cart.items);
+                }}
+              >
+                Add to cart
+              </button>
+            </div>
           </div>
         </div>
       </div>

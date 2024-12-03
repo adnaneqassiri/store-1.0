@@ -9,7 +9,6 @@ export default function Cart({ show, handleClose }) {
 
   function getTotalCost() {
     let totalCost = 0;
-
     cart.items.forEach((el) => {
       const productData = products.find((e) => {
         return e.id === +el.id;

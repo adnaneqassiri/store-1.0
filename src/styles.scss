@@ -348,15 +348,20 @@ body {
       background-color: $bg-color;
       padding: 40px;
       align-items: center;
-      justify-content: center;
+      justify-content: start;
       display: flex;
+      flex-direction: row;
       .section-1 {
         img {
           width: 300px;
         }
       }
       .section-2 {
+        width: 100%;
+        display: flex;
         margin-left: 30px;
+        justify-content: space-between;
+        align-items: center;
         h2 {
           font-size: 34px;
           font-weight: 500;
